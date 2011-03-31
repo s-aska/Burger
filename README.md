@@ -4,6 +4,10 @@ Pickles's Sample Application.
 
 ( Picklesを美味しく頂く為ののサンプルアプリケーションです。 )
 
+## Screen
+
+<img src="http://dl.dropbox.com/u/11475683/screen/burger001.png">
+
 ## Features
 
 - Social Login
