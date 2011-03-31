@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>[% c.appname | html %]</title>
+</head>
+<body>
+<h1>Hello [% c.appname | html %]!</h1>
+
+[% IF　tw_account %]
+<p>Twitter: [% tw_account.screen_name %]</p>
+[% END %]
+
+[% IF　fb_account %]
+<p>Facebook: [% fb_account.user.name %]</p>
+[% END %]
+
+<p><a href="/login/twitter/oauth">connect with twitter</a></p>
+<p><a href="/login/facebook/oauth">connect with facebook</a></p>
+<p><a>connect with google</a></p>
+
+</body>
+</html>
