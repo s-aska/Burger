@@ -7,8 +7,8 @@ Pickles's Sample Application.
 ## Features
 
 - Social Login
--- Twitter
--- Facebook
+  - Twitter
+  - Facebook
 
 ( OpenID等はログイン実装中 )
 
@@ -17,12 +17,12 @@ Pickles's Sample Application.
 1. Create App https://developer.twitter.com/apps/new  
     Choose Browser Application.  
     Input Callback URL (http://example.com/login/twitter/callback)
-2. Get API Key and API Secret
+2. Get Consumer Key and Consumer Secret
 3. edit config.pl
 
         Twitter => {
-            consumer_key => 'API Key',
-            consumer_secret => 'API Secret',
+            consumer_key => 'Your App Consumer Key',
+            consumer_secret => 'Your App Consumer Secret',
             callback => 'http://localhost:5000/login/twitter/callback',
             oauth_urls => {
                 request_token_url => "https://api.twitter.com/oauth/request_token",
@@ -31,6 +31,8 @@ Pickles's Sample Application.
                 xauth_url         => "https://api.twitter.com/oauth/access_token"
             }
         },
+
+**Caution**
 
 - ブラウザアプリケーションを指定しないと利用できない
 - Callback URL を指定しないと勝手にクライアントアプリケーションとして登録されてしまう
@@ -48,6 +50,8 @@ Pickles's Sample Application.
             app_id => '',
             secret => ''
         }
+
+**Caution**
 
 - Site URL を登録したドメイン配下しかpostbackに指定できない
 
