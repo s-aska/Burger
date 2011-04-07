@@ -2,6 +2,8 @@ use HTTP::Session;
 use HTTP::Session::Store::File;
 use HTTP::Session::State::Cookie;
 
+mkdir '/tmp/sessions' if !-d '/tmp/sessions';
+
 return +{
     'Plugin::Session' => {
         store => HTTP::Session::Store::File->new(

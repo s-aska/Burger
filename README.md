@@ -52,7 +52,7 @@ Pickles's Sample Application.
 
         Facebook => {
             postback => 'http://localhost:5000/login/facebook/callback',
-            app\_id => 'Your app\_id',
+            app_id => 'Your app_id',
             secret => 'Your secret'
         }
 
