@@ -6,7 +6,7 @@ Pickles's Sample Application.
 
 ## Screen
 
-<img src="http://dl.dropbox.com/u/11475683/screen/burger001.png">
+<img src="http://dl.dropbox.com/u/11475683/screen/burger002.png">
 
 ## Features
 
@@ -74,5 +74,4 @@ Pickles's Sample Application.
 
 ## Run
 
-    mkdir /tmp/sessions
     plackup Burger.psgi

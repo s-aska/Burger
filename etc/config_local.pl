@@ -15,6 +15,10 @@ return +{
         postback => 'http://localhost:8000/login/facebook/callback',
         app_id => '200200250012308',
         secret => 'd89bb7116fdc1a737ead2ce79df70423'
+    },
+    Dropbox => {
+        key => '1s9bfctl76jpceg',
+        secret => 'fr3ti28li2qn6mt',
+        callback_url => 'http://localhost:8000/login/dropbox/callback'
     }
 };
-

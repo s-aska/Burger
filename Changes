@@ -1,4 +1,7 @@
 Revision history for Perl extension Burger
 
-0.01    Thu Mar 31 17:11:02 2011
+0.02    Thu Apr  7 14:34:47 JST 2011
+        - support Dropbox Login.
+
+0.01    Thu Mar 31 17:11:02 JST 2011
         - original version
