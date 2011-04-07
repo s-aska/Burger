@@ -24,6 +24,11 @@ return +{
         postback => 'http://localhost:5000/login/facebook/callback',
         app_id => '',
         secret => ''
+    },
+    Dropbox => {
+        key => '',
+        secret => '',
+        callback_url => 'http://localhost:5000/login/dropbox/callback'
     }
 };
 

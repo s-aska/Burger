@@ -4,6 +4,7 @@ all_from 'lib/Burger.pm';
 
 requires 'Facebook::Graph';
 requires 'HTTP::Session';
+requires 'Net::Dropbox::API';
 requires 'Net::Twitter::Lite';
 requires 'Pickles' => 0.06;
 

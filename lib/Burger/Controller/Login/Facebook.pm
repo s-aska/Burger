@@ -9,8 +9,6 @@ sub oauth {
     my $fb = $c->get('Facebook');
     my $url = $fb->authorize->extend_permissions('publish_stream')->uri_as_string;
     
-    warn $url;
-    
     $c->redirect($url);
 }
 
@@ -22,13 +20,10 @@ sub callback {
     $fb->request_access_token($code);
     my $access_token = $fb->access_token;
     my $user = $fb->fetch('me');
-    use Data::Dumper;
-    warn Dumper($user);
     $c->session->set('fb_account', {
         user => $user,
         access_token => $access_token
     });
-    
     $c->redirect('/');
 }
 

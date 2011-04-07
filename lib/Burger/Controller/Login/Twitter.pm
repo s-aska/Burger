@@ -9,10 +9,10 @@ sub oauth {
     my $nt = $c->get('Twitter');
     my $url = $nt->get_authentication_url(callback => $c->config->{Twitter}->{callback});
     
-    warn $url;
-    
-    $c->res->cookies->{request_token} = $nt->request_token;
-    $c->res->cookies->{request_token_secret} = $nt->request_token_secret;
+    $c->session->set('tw_request', {
+        request_token        => $nt->request_token,
+        request_token_secret => $nt->request_token_secret
+    });
     
     $c->redirect($url);
 }
@@ -20,12 +20,11 @@ sub oauth {
 sub callback {
     my( $self, $c ) = @_;
     
-    my $request_token = $c->req->cookies->{request_token};
-    my $request_token_secret = $c->req->cookies->{request_token_secret};
+    my $tw_request = $c->session->remove('tw_request');
 
     my $nt = $c->get('Twitter');
-    $nt->request_token($request_token);
-    $nt->request_token_secret($request_token_secret);
+    $nt->request_token($tw_request->{request_token});
+    $nt->request_token_secret($tw_request->{request_token_secret});
     
     my $verifier = $c->req->param('oauth_verifier');
 

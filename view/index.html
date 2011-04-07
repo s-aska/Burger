@@ -3,7 +3,19 @@
     <title>[% c.appname | html %]</title>
 </head>
 <body>
+
+<header>
 <h1>Hello [% c.appname | html %]!</h1>
+</header>
+
+<nav>
+<p><a href="/logout">logout</a></p>
+<p><a href="/login/twitter/oauth">connect with twitter</a></p>
+<p><a href="/login/facebook/oauth">connect with facebook</a></p>
+<p><a href="/login/dropbox/oauth">connect with dropbox</a></p>
+<p><a>connect with google</a></p>
+</nav>
+
 
 [% IF　tw_account %]
 <p>Twitter: [% tw_account.screen_name %]</p>
@@ -13,9 +25,25 @@
 <p>Facebook: [% fb_account.user.name %]</p>
 [% END %]
 
-<p><a href="/login/twitter/oauth">connect with twitter</a></p>
-<p><a href="/login/facebook/oauth">connect with facebook</a></p>
-<p><a>connect with google</a></p>
+[% IF　dropbox_account %]
+<section>
+<p>Dropbox</p>
+<ul>
+<li>uid: [% dropbox_account.account_info.uid %]</li>
+<li>display_name: [% dropbox_account.account_info.display_name %]</li>
+<li>country: [% dropbox_account.account_info.country %]</li>
+<li>email: [% dropbox_account.account_info.email %]</li>
+<li>referral_link: [% dropbox_account.account_info.referral_link %]</li>
+<li>quota_info
+<ul>
+<li>quota: [% dropbox_account.account_info.quota_info.quota %]</li>
+<li>shared: [% dropbox_account.account_info.quota_info.shared %]</li>
+<li>normal: [% dropbox_account.account_info.quota_info.normal %]</li>
+</ul>
+</li>
+</ul>
+</section>
+[% END %]
 
 </body>
 </html>
