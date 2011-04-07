@@ -66,11 +66,11 @@ Pickles's Sample Application.
 2. Get API Key and API Secret
 3. edit config.pl
 
-    Dropbox => {
-        key => 'Your API Key',
-        secret => 'Your API Secret',
-        callback_url => 'http://localhost:8000/login/dropbox/callback'
-    }
+        Dropbox => {
+            key => 'Your API Key',
+            secret => 'Your API Secret',
+            callback_url => 'http://localhost:8000/login/dropbox/callback'
+        }
 
 ## Run
 
