@@ -1,5 +1,8 @@
 Revision history for Perl extension Burger
 
+0.03    Fri Apr  8 02:39:56 JST 2011
+        - support OpenID Login.
+
 0.02    Thu Apr  7 14:34:47 JST 2011
         - support Dropbox Login.
 
