@@ -6,7 +6,7 @@ Pickles's Sample Application.
 
 ## Screen
 
-<img src="http://dl.dropbox.com/u/11475683/screen/burger002.png">
+<img src="http://dl.dropbox.com/u/11475683/screen/burger003.png">
 
 ## Features
 
@@ -14,6 +14,8 @@ Pickles's Sample Application.
   - Twitter
   - Facebook
   - Dropbox
+  - Google (OpenID)
+  - OpenID
 
 ( OpenID等はログイン実装中 )
 
