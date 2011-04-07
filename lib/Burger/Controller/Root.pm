@@ -3,12 +3,21 @@ use strict;
 use warnings;
 use parent 'Pickles::Controller';
 
+use JSON;
+
 sub index {
     my( $self, $c ) = @_;
+    
+    my $json = JSON->new->pretty->utf8;
+    
+    $c->stash->{to_json} = sub {
+        $json->encode(shift)
+    };
     
     $c->stash->{tw_account} = $c->session->get('tw_account');
     $c->stash->{fb_account} = $c->session->get('fb_account');
     $c->stash->{dropbox_account} = $c->session->get('dropbox_account');
+    $c->stash->{openid_account} = $c->session->get('openid_account');
 }
 
 sub logout {

@@ -31,6 +31,10 @@ return +{
         key => '',
         secret => '',
         callback_url => 'http://localhost:5000/login/dropbox/callback'
+    },
+    OpenID => {
+        return_to => 'http://localhost:5000/login/openid/callback',
+        realm => 'http://localhost:5000/'
     }
 };
 

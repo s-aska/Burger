@@ -1,6 +1,12 @@
 <html>
 <head>
-    <title>[% c.appname | html %]</title>
+<title>[% c.appname | html %]</title>
+<style>
+form {
+  padding: 10px;
+  border: 1px solid black;
+}
+</style>
 </head>
 <body>
 
@@ -13,36 +19,54 @@
 <p><a href="/login/twitter/oauth">connect with twitter</a></p>
 <p><a href="/login/facebook/oauth">connect with facebook</a></p>
 <p><a href="/login/dropbox/oauth">connect with dropbox</a></p>
-<p><a>connect with google</a></p>
-</nav>
 
+<form action="/login/openid/auth" method="post">
+url: <input type="text" name="openid.identifier" value="">
+<input type="submit" name="button" value="connect with OpenID">
+</form>
+
+
+<form action="/login/openid/auth" method="post">
+id: <input type="text" name="hatena_id" value="">
+<input type="hidden" name="op" value="hatena">
+<input type="submit" name="button" value="connect with hatena">
+</form>
+
+<form action="/login/openid/auth" method="post">
+<input type="hidden" name="op" value="google">
+<div>get email: <input type="checkbox" name="openid.ax.required" value="email"></div>
+<div>get first name: <input type="checkbox" name="openid.ax.required" value="firstname"></div>
+<div>get last name: <input type="checkbox" name="openid.ax.required" value="lastname"></div>
+<div>get country: <input type="checkbox" name="openid.ax.required" value="country"></div>
+<div>get language: <input type="checkbox" name="openid.ax.required" value="language"></div>
+<div><input type="submit" name="button" value="connect with google"></div>
+</form>
+
+</nav>
+<hr>
+
+[% IF　openid_account %]
+<h2>OpenID</h2>
+<pre>[% to_json(openid_account.vident) %]</pre>
+<hr>
+[% END %]
 
 [% IF　tw_account %]
-<p>Twitter: [% tw_account.screen_name %]</p>
+<h2>Twitter</h2>
+<pre>[% to_json(tw_account) %]</pre>
+<hr>
 [% END %]
 
 [% IF　fb_account %]
-<p>Facebook: [% fb_account.user.name %]</p>
+<h2>Facebook</h2>
+<pre>[% to_json(fb_account) %]</pre>
+<hr>
 [% END %]
 
 [% IF　dropbox_account %]
-<section>
-<p>Dropbox</p>
-<ul>
-<li>uid: [% dropbox_account.account_info.uid %]</li>
-<li>display_name: [% dropbox_account.account_info.display_name %]</li>
-<li>country: [% dropbox_account.account_info.country %]</li>
-<li>email: [% dropbox_account.account_info.email %]</li>
-<li>referral_link: [% dropbox_account.account_info.referral_link %]</li>
-<li>quota_info
-<ul>
-<li>quota: [% dropbox_account.account_info.quota_info.quota %]</li>
-<li>shared: [% dropbox_account.account_info.quota_info.shared %]</li>
-<li>normal: [% dropbox_account.account_info.quota_info.normal %]</li>
-</ul>
-</li>
-</ul>
-</section>
+<h2>Dropbox</h2>
+<pre>[% to_json(dropbox_account) %]</pre>
+<hr>
 [% END %]
 
 </body>
