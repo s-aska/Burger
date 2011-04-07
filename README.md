@@ -10,9 +10,10 @@ Pickles's Sample Application.
 
 ## Features
 
-- Social Login
+- Social/OAuth Login
   - Twitter
   - Facebook
+  - Dropbox
 
 ( OpenID等はログイン実装中 )
 
@@ -51,13 +52,25 @@ Pickles's Sample Application.
 
         Facebook => {
             postback => 'http://localhost:5000/login/facebook/callback',
-            app_id => '',
-            secret => ''
+            app\_id => 'Your app\_id',
+            secret => 'Your secret'
         }
 
 **Caution**
 
 - Site URL を登録したドメイン配下しかpostbackに指定できない
+
+### Setup Dropbox
+
+1. Create App <https://www.dropbox.com/developers>
+2. Get API Key and API Secret
+3. edit config.pl
+
+    Dropbox => {
+        key => 'Your API Key',
+        secret => 'Your API Secret',
+        callback_url => 'http://localhost:8000/login/dropbox/callback'
+    }
 
 ## Run
 
