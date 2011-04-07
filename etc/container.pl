@@ -9,7 +9,7 @@ register( 'Twitter' => sub {
     die 'please set consumer_key' unless $config->{Twitter}->{consumer_key};
     die 'please set consumer_secret' unless $config->{Twitter}->{consumer_secret};
     return Net::Twitter::Lite->new(%{$config->{Twitter}});
-}, { persistent => 1 });
+}, { persistent => 0 });
 
 register( 'Facebook' => sub {
     my $c = shift;
@@ -17,7 +17,7 @@ register( 'Facebook' => sub {
     die 'please set app_id' unless $config->{Facebook}->{app_id};
     die 'please set secret' unless $config->{Facebook}->{secret};
     return Facebook::Graph->new(%{$config->{Facebook}});
-}, { persistent => 1 });
+}, { persistent => 0 });
 
 register( 'Dropbox' => sub {
     my $c = shift;
@@ -27,6 +27,6 @@ register( 'Dropbox' => sub {
     my $box = Net::Dropbox::API->new($config->{Dropbox});
     $box->context('dropbox');
     return $box;
-}, { persistent => 1 });
+}, { persistent => 0 });
 
 1;
