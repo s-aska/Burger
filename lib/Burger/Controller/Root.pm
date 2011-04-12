@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use parent 'Pickles::Controller';
 
+use Encode;
 use JSON;
 
 sub index {
@@ -11,7 +12,7 @@ sub index {
     my $json = JSON->new->pretty->utf8;
     
     $c->stash->{to_json} = sub {
-        $json->encode(shift)
+        decode_utf8($json->encode(shift))
     };
     
     $c->stash->{tw_account} = $c->session->get('tw_account');

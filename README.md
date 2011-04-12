@@ -15,9 +15,7 @@ Pickles's Sample Application.
   - Facebook
   - Dropbox
   - Google (OpenID)
-  - OpenID
-
-( OpenID等はログイン実装中 )
+  - Other OpenID
 
 ### Setup Twitter
 

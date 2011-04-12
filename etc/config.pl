@@ -16,10 +16,11 @@ return +{
         consumer_secret => '',
         callback => 'http://localhost:5000/login/twitter/callback',
         oauth_urls => {
-            request_token_url => "https://api.twitter.com/oauth/request_token",
-            authorization_url => "https://api.twitter.com/oauth/authorize",
-            access_token_url  => "https://api.twitter.com/oauth/access_token",
-            xauth_url         => "https://api.twitter.com/oauth/access_token"
+            request_token_url  => "https://api.twitter.com/oauth/request_token",
+            authorization_url  => "https://api.twitter.com/oauth/authorize",
+            authentication_url => "https://api.twitter.com/oauth/authenticate",
+            access_token_url   => "https://api.twitter.com/oauth/access_token",
+            xauth_url          => "https://api.twitter.com/oauth/access_token"
         }
     },
     Facebook => {
