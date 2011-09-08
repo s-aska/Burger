@@ -2,12 +2,14 @@ use HTTP::Session;
 use HTTP::Session::Store::File;
 use HTTP::Session::State::Cookie;
 
-mkdir '/tmp/sessions' if !-d '/tmp/sessions';
+my $session_dir = __path_to('sessions');
+
+mkdir $session_dir if !-d $session_dir;
 
 return +{
     'Plugin::Session' => {
         store => HTTP::Session::Store::File->new(
-            dir => '/tmp/sessions',
+            dir => $session_dir,
         ),
         state => HTTP::Session::State::Cookie->new()
     },

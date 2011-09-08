@@ -25,11 +25,15 @@ url: <input type="text" name="openid.identifier" value="">
 <input type="submit" name="button" value="connect with OpenID">
 </form>
 
+<form action="/login/openid/auth" method="post">
+<input type="hidden" name="openid.identifier" value="https://auth.livedoor.com/openid/server">
+<input type="submit" name="button" value="connect with OpenID (livedoor)">
+</form>
 
 <form action="/login/openid/auth" method="post">
 id: <input type="text" name="hatena_id" value="">
 <input type="hidden" name="op" value="hatena">
-<input type="submit" name="button" value="connect with hatena">
+<input type="submit" name="button" value="connect with OpenID (hatena)">
 </form>
 
 <form action="/login/openid/auth" method="post">

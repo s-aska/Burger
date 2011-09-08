@@ -81,9 +81,13 @@ sub callback {
     
     my $request = $c->req->parameters->mixed;
     
-    if ($request->{'openid.identity'}=~m|^http://www.hatena.ne.jp/|) {
+    if ($request->{'openid.identity'}=~m|^\Qhttp://www.hatena.ne.jp/|) {
         $request->{'openid.op_endpoint'}
             = 'https://www.hatena.ne.jp/openid/server';
+    }
+    elsif ($request->{'openid.identity'}=~m|^\Qhttp://profile.livedoor.com/|) {
+        $request->{'openid.op_endpoint'}
+            = 'https://auth.livedoor.com/openid/server';
     }
     
     Net::OpenID::Consumer::Lite->handle_server_response(
